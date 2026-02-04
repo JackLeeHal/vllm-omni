@@ -14,6 +14,7 @@
 # limitations under the License.
 import base64
 import io
+import os
 import urllib.request
 from collections.abc import Iterable
 from dataclasses import dataclass
@@ -81,7 +82,7 @@ class Qwen3TTSModelForGeneration(nn.Module):
             torch_dtype=torch.bfloat16,
             **attn_kwargs,
         )
-        self.task_type = model_path.split("-")[-1].strip("/")
+        self.task_type = os.environ.get("VLLM_TTS_TASK_TYPE") or model_path.split("-")[-1].strip("/")
         # Mark that this model produces multimodal outputs
         self.have_multimodal_outputs = True
 
