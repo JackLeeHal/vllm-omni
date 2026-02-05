@@ -73,6 +73,7 @@ class OmniModelConfig(ModelConfig):
         }
     )
     omni_kv_config: dict | None = None
+    task_type: str | None = None
 
     @property
     def registry(self):

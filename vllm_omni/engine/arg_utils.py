@@ -74,6 +74,7 @@ class OmniEngineArgs(EngineArgs):
     stage_connector_spec: dict[str, Any] = field(default_factory=dict)
     async_chunk: bool = False
     omni_kv_config: dict | None = None
+    task_type: str | None = None
 
     def draw_hf_text_config(self, config_dict: dict) -> Qwen3OmniMoeTextConfig:
         # transformers' get_text_config method is used to get the text config from thinker_config.
@@ -141,6 +142,7 @@ class OmniEngineArgs(EngineArgs):
         config_dict["hf_config_name"] = self.hf_config_name
         config_dict["custom_process_next_stage_input_func"] = self.custom_process_next_stage_input_func
         config_dict["omni_kv_config"] = self.omni_kv_config
+        config_dict["task_type"] = self.task_type
         if self.hf_config_name is not None:
             config_dict["hf_text_config"] = self.draw_hf_text_config(config_dict)
         # Create and return the OmniModelConfig instance
@@ -176,6 +178,7 @@ class AsyncOmniEngineArgs(AsyncEngineArgs):
     stage_connector_spec: dict[str, Any] = field(default_factory=dict)
     async_chunk: bool = False
     omni_kv_config: dict | None = None
+    task_type: str | None = None
 
     def draw_hf_text_config(self, config_dict: dict) -> Qwen3OmniMoeTextConfig:
         # transformers' get_text_config method is used to get the text config from thinker_config.
@@ -232,6 +235,7 @@ class AsyncOmniEngineArgs(AsyncEngineArgs):
         config_dict["hf_config_name"] = self.hf_config_name
         config_dict["custom_process_next_stage_input_func"] = self.custom_process_next_stage_input_func
         config_dict["omni_kv_config"] = self.omni_kv_config
+        config_dict["task_type"] = self.task_type
         if self.hf_config_name is not None:
             config_dict["hf_text_config"] = self.draw_hf_text_config(config_dict)
         # Create and return the OmniModelConfig instance
