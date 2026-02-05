@@ -14,7 +14,6 @@
 # limitations under the License.
 import base64
 import io
-import os
 import urllib.request
 from collections.abc import Iterable
 from dataclasses import dataclass
