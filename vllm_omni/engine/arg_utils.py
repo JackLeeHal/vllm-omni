@@ -203,7 +203,7 @@ class OmniEngineArgs(EngineArgs):
             custom_process_next_stage_input_func=self.custom_process_next_stage_input_func,
             stage_connector_config=stage_connector_config,
             omni_kv_config=self.omni_kv_config,
-            task_type=self.task_type
+            task_type=self.task_type,
         )
         omni_config.hf_config.architectures = omni_config.architectures
 
@@ -364,7 +364,7 @@ class AsyncOmniEngineArgs(AsyncEngineArgs):
             custom_process_next_stage_input_func=self.custom_process_next_stage_input_func,
             stage_connector_config=stage_connector_config,
             omni_kv_config=self.omni_kv_config,
-            task_type=self.task_type
+            task_type=self.task_type,
         )
         omni_config.hf_config.architectures = omni_config.architectures
 
